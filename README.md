@@ -28,6 +28,16 @@ The project was developed as a collaborative academic final project. I served as
 
 ---
 
+## Product Preview
+
+<img src="assets/homepage.jpg" alt="FTEAT homepage and role-based navigation" width="100%">
+
+The screenshot above comes from the original project report and shows the implemented FTEAT interface used during the academic submission period.
+
+Additional UI evidence - including student menu/search/cart flows, vendor menu management, admin vendor verification, and deployment validation - is preserved in the original project documentation and source repository.
+
+---
+
 ## The Problem
 
 The 7th-floor Engineering canteen serves students from several nearby buildings, but ordering was still handled manually.
@@ -316,11 +326,6 @@ Keeping that flow consistent required frontend state, backend endpoints, persist
 
 - **Backend source:**  
   https://github.com/HannahLarissaHalim/UAS-FrontEnd-Kelompok6/tree/master/backend
-
-### Demo
-
-- **Project demo / presentation video:**  
-  https://youtu.be/v-htvUScw6M
 
 ### Historical Deployment
 
