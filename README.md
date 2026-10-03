@@ -31,24 +31,12 @@ The project was developed as a collaborative academic final project. I served as
 ## Product Preview
 
 <p align="center">
-  <img src="assets/homepage.webp" alt="FTEAT homepage" width="700">
+  <img src="assets/homepage.jpg" alt="FTEAT project preview" width="500">
 </p>
 
-<p align="center"><em>Homepage and role-based navigation.</em></p>
+<p align="center"><em>Project preview captured from the original academic report.</em></p>
 
-<p align="center">
-  <img src="assets/menu-search.webp" alt="FTEAT student menu search" width="700">
-</p>
-
-<p align="center"><em>Student menu with search and filtering workflow.</em></p>
-
-<p align="center">
-  <img src="assets/backend-connected.webp" alt="FTEAT backend deployment validation" width="650">
-</p>
-
-<p align="center"><em>Historical Railway backend validation showing the Express API connected to MongoDB.</em></p>
-
-These images were cropped from the original academic report because the original standalone screenshots are no longer available. They are intentionally displayed at a smaller width to preserve readability and avoid unnecessary upscaling.
+The original standalone screenshots are no longer available, so this preview is intentionally kept compact to avoid visible upscaling artifacts.
 
 ---
 
