@@ -30,11 +30,25 @@ The project was developed as a collaborative academic final project. I served as
 
 ## Product Preview
 
-<img src="assets/homepage.jpg" alt="FTEAT homepage and role-based navigation" width="100%">
+<p align="center">
+  <img src="assets/homepage.webp" alt="FTEAT homepage" width="700">
+</p>
 
-The screenshot above comes from the original project report and shows the implemented FTEAT interface used during the academic submission period.
+<p align="center"><em>Homepage and role-based navigation.</em></p>
 
-Additional UI evidence - including student menu/search/cart flows, vendor menu management, admin vendor verification, and deployment validation - is preserved in the original project documentation and source repository.
+<p align="center">
+  <img src="assets/menu-search.webp" alt="FTEAT student menu search" width="700">
+</p>
+
+<p align="center"><em>Student menu with search and filtering workflow.</em></p>
+
+<p align="center">
+  <img src="assets/backend-connected.webp" alt="FTEAT backend deployment validation" width="650">
+</p>
+
+<p align="center"><em>Historical Railway backend validation showing the Express API connected to MongoDB.</em></p>
+
+These images were cropped from the original academic report because the original standalone screenshots are no longer available. They are intentionally displayed at a smaller width to preserve readability and avoid unnecessary upscaling.
 
 ---
 
