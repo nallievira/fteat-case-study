@@ -1,410 +1,152 @@
 # FTEAT — Campus Food Ordering Platform
 
-A portfolio case study of **FTEAT (Teknik Rekayasa Rasa)**, a multi-role web application built to digitalize ordering at the 7th-floor Engineering canteen at Universitas Tarumanagara.
+**A web platform for students, food vendors, and canteen administrators at Universitas Tarumanagara.**
 
-The project was developed as a collaborative academic final project. I served as the **team leader** and contributed across frontend implementation, responsive behavior, integration, debugging, deployment fixes, and selected backend-connected workflows.
+FTEAT (*Teknik Rekayasa Rasa*) brings menu discovery, ordering, payment confirmation, and vendor operations into one application for the 7th-floor Engineering canteen. Built as a four-person academic final project in 2025, it combines a Next.js interface with an Express API and MongoDB persistence.
 
-> **Case study note**
->
-> This repository is intentionally a portfolio case study rather than a duplicate of the original team repository. The complete source history, branches, pull requests, and collaborative code remain in the original project repository.
->
-> **Original team repository:** https://github.com/HannahLarissaHalim/UAS-FrontEnd-Kelompok6
+**My role:** Ellen Elvira · Team Lead / Full-Stack Contributor
 
----
+[Original source & team history](https://github.com/HannahLarissaHalim/UAS-FrontEnd-Kelompok6) · [My contributions](#my-contributions) · [Architecture](#architecture) · [Screen gallery](#screen-gallery)
 
-## Project Snapshot
+![FTEAT landing page with Teknik Rekayasa Rasa branding and registration and login actions](assets/screenshots/homepage.png)
 
-- **Context:** Academic final project
-- **Period:** 2025
-- **Team:** 4-person development team
-- **My role:** Team Lead / Full-Stack Contributor
-- **Product:** Campus food ordering and vendor-management web platform
-- **Frontend:** Next.js, React, Bootstrap
-- **Backend:** Node.js, Express.js
-- **Database:** MongoDB / MongoDB Atlas
-- **Media:** Cloudinary
-- **Deployment:** Vercel + Railway
-- **Version control:** GitHub
+*The application's landing page. Screenshots in this case study come from the original academic project.*
 
----
-
-## Product Preview
-
-These screenshots are direct captures from the working FTEAT interface during the academic delivery period.
-
-### Student Experience
-
-<p align="center">
-  <img src="assets/ui/student-menu.jpg" alt="FTEAT student menu" width="560">
-</p>
-
-<p align="center"><em>Menu browsing with categories, search, pricing, add-ons, and cart actions.</em></p>
-
-<p align="center">
-  <img src="assets/ui/payment.jpg" alt="FTEAT payment flow" width="560">
-</p>
-
-<p align="center"><em>Payment instructions and order total before vendor verification.</em></p>
-
-### Vendor Operations
-
-<p align="center">
-  <img src="assets/ui/vendor-orders.jpg" alt="FTEAT vendor order verification" width="560">
-</p>
-
-<p align="center"><em>Vendor-side order management and payment verification workflow.</em></p>
-
-The interface supports an end-to-end flow from menu discovery and ordering to payment confirmation and vendor-side processing.
-
----
-
-## The Problem
-
-The 7th-floor Engineering canteen serves students from several nearby buildings, but ordering was still handled manually.
-
-During busy class breaks, this created practical problems:
-
-- long queues,
-- limited time between classes,
-- manual order recording,
-- difficulty checking menu availability before reaching the canteen,
-- and limited digital support for the small food vendors operating there.
-
-FTEAT was designed to reduce those frictions by allowing students to browse and order food online while giving vendors a structured way to manage menus and process incoming orders.
-
----
-
-## The Product
-
-FTEAT connects three user roles in one workflow:
-
-### Students
-
-Students can:
-
-- register and verify an account,
-- log in using their student identity,
-- browse available food,
-- search and filter menus,
-- add items to a cart,
-- place an order,
-- view payment information,
-- send payment confirmation to the vendor,
-- and track order status / queue information.
-
-### Vendors
-
-Food vendors can:
-
-- register an account,
-- wait for administrator approval,
-- log in after approval,
-- manage their profile,
-- add, edit, and delete menu items,
-- update stock availability,
-- review incoming orders,
-- and verify student payments.
-
-### Administrators
-
-Administrators can:
-
-- log in through a dedicated admin flow,
-- review newly registered vendors,
-- approve or reject vendor registrations,
-- inspect vendor details,
-- edit allowed vendor information,
-- and remove vendors from the platform.
-
----
-
-## System Architecture
-
-```mermaid
-flowchart LR
-    U[Student] --> FE[Next.js / React Frontend]
-    V[Vendor] --> FE
-    A[Admin] --> FE
-
-    FE --> API[Node.js + Express REST API]
-
-    API --> AUTH[Authentication & Middleware]
-    API --> USERS[User Routes]
-    API --> VENDORS[Vendor Routes]
-    API --> MENUS[Menu Routes]
-    API --> ORDERS[Order Routes]
-
-    AUTH --> DB[(MongoDB Atlas)]
-    USERS --> DB
-    VENDORS --> DB
-    MENUS --> DB
-    ORDERS --> DB
-
-    API --> CLOUD[Cloudinary]
-    API --> EMAIL[Email Verification / Reset Flow]
-```
-
-The backend follows a modular monolithic structure with routes, controllers, models, middleware, and service logic separated by responsibility.
-
----
-
-## Backend & API Scope
-
-The backend was built with **Node.js and Express.js**, using MongoDB for persistent application data and Cloudinary for media storage.
-
-The project includes API flows for:
-
-### Authentication
-
-- student registration
-- login
-- current-user retrieval
-- email verification
-- resend verification email
-- forgot-password request
-- token-based password reset
-
-### Users
-
-- retrieve users by ID, student number, faculty, major, name, or role
-- update nickname
-- update profile image
-- delete account
-
-### Vendors
-
-- vendor registration and login
-- admin vendor listing
-- approve vendor
-- update vendor
-- delete vendor
-- vendor self-profile update
-
-### Menus
-
-- list menus
-- retrieve menu details
-- create menu
-- update menu
-- delete one or multiple menu items
-- update stock state
-- retrieve menus by vendor
-
-### Orders
-
-- create orders
-- retrieve order details
-- retrieve orders by user or vendor
-- update order status
-- verify payment
-- cancel payment verification
-
----
-
-## My Role & Contributions
-
-I served as **team leader** and contributed across multiple parts of the product rather than staying in only one layer.
-
-My documented contribution includes:
-
-- Built and refined student-facing frontend flows including **Home, Menu, and Cart**
-- Worked on vendor-facing **Profile, Orders, and Menu** interfaces
-- Implemented and refined responsive behavior across the application
-- Participated in frontend-backend integration and database-connected workflows
-- Debugged redirect, login, account, vendor, and order-flow issues during integration
-- Worked on deployment fixes for the hosted application
-- Adjusted cross-origin configuration for local and deployed environments
-- Improved account and vendor workflow behavior, including restrictions around vendor bank-account editing
-- Fixed order-history image loading and related integrated UI/data behavior
-- Worked on email delivery / verification configuration during deployment, including migration away from the original SMTP setup
-- Participated in merge and integration work as the project moved from separate feature branches into the final application
-
-The project required repeated integration between UI state, REST endpoints, authentication, persisted data, and deployment configuration — especially during the final delivery phase.
-
----
-
-## Contribution Evidence
-
-The original repository preserves the collaborative development history.
-
-Selected evidence related to my work:
-
-- **Initial frontend branch integration — PR #14**  
-  https://github.com/HannahLarissaHalim/UAS-FrontEnd-Kelompok6/pull/14  
-  Student Home/Menu/Cart and Vendor Profile/Orders/Menu work were included in this frontend integration.
-
-- **Deployment / integration fixes — PR #34**  
-  https://github.com/HannahLarissaHalim/UAS-FrontEnd-Kelompok6/pull/34
-
-- **Large integration update — PR #35**  
-  https://github.com/HannahLarissaHalim/UAS-FrontEnd-Kelompok6/pull/35  
-  Included updates spanning application behavior, deployment compatibility, vendor/account workflows, and order-history behavior.
-
-- **Email configuration follow-ups — PR #36 and #37**  
-  https://github.com/HannahLarissaHalim/UAS-FrontEnd-Kelompok6/pull/36  
-  https://github.com/HannahLarissaHalim/UAS-FrontEnd-Kelompok6/pull/37
-
-- **Email delivery integration — PR #38**  
-  https://github.com/HannahLarissaHalim/UAS-FrontEnd-Kelompok6/pull/38
-
----
-
-## Deployment Architecture
-
-FTEAT was deployed with separate frontend and backend services:
-
-```mermaid
-flowchart LR
-    GH[GitHub] --> V[Vercel]
-    GH --> R[Railway]
-
-    V -->|Next.js Frontend| B[Browser]
-    B -->|API Requests| R
-
-    R -->|Express Backend| M[(MongoDB Atlas)]
-    R --> C[Cloudinary]
-```
-
-- **Frontend:** Vercel
-- **Backend:** Railway
-- **Database:** MongoDB Atlas
-- **Media:** Cloudinary
-
-The original academic deployment used GitHub-connected deployment so repository updates could trigger rebuilds on the hosting platforms.
-
-> **Deployment status:** The project was deployed during the original academic submission period. The backend deployment may no longer be active because the original hosting period/free service is no longer maintained. The source code, architecture, Git history, and project evidence remain available.
-
----
-
-## Selected Engineering Challenges
-
-### 1. Connecting three different user roles
-
-The application had to support students, vendors, and administrators without mixing their workflows.
-
-This affected:
-
-- navigation,
-- authentication,
-- route protection,
-- account data,
-- menu permissions,
-- vendor approval,
-- and order visibility.
-
-### 2. Moving from mock UI to database-backed behavior
-
-Early interface work used placeholder data while the screens were being built.
-
-As backend development progressed, menus, users, vendors, and orders had to be connected to real API responses and persisted state.
-
-### 3. Deployment differences between local and hosted environments
-
-A feature that works on localhost can still fail once frontend and backend are hosted on different domains.
-
-The final integration required work around:
-
-- backend URLs,
-- environment variables,
-- CORS,
-- MongoDB connection configuration,
-- redirects,
-- email delivery,
-- and deployment-specific behavior.
-
-### 4. Maintaining an end-to-end order flow
-
-The ordering workflow crosses several parts of the application:
-
-```text
-Browse Menu
-    ↓
-Add to Cart / Buy Now
-    ↓
-Create Order
-    ↓
-Payment Information
-    ↓
-Vendor Payment Verification
-    ↓
-Order Status / Queue
-```
-
-Keeping that flow consistent required frontend state, backend endpoints, persisted order data, and vendor actions to stay aligned.
-
----
-
-## Project Evidence
-
-### Source Code
-
-- **Original team repository:**  
-  https://github.com/HannahLarissaHalim/UAS-FrontEnd-Kelompok6
-
-- **Frontend source:**  
-  https://github.com/HannahLarissaHalim/UAS-FrontEnd-Kelompok6/tree/master/fteat_uas_frontend
-
-- **Backend source:**  
-  https://github.com/HannahLarissaHalim/UAS-FrontEnd-Kelompok6/tree/master/backend
-
-### Historical Deployment
-
-- **Frontend (Vercel):**  
-  https://fteatuntar.vercel.app/home
-
-The frontend URL is included as historical project evidence; some functions may no longer work if the original backend service is inactive.
-
----
-
-## Technology Stack
-
-| Area | Technology |
+| Project | Details |
 | --- | --- |
-| Frontend framework | Next.js |
-| UI | React, Bootstrap |
-| Backend | Node.js, Express.js |
-| Database | MongoDB / MongoDB Atlas |
-| ODM | Mongoose |
-| Authentication | JWT-based application flows |
-| Media storage | Cloudinary |
-| Email flows | Verification / password-reset email service |
-| Frontend deployment | Vercel |
-| Backend deployment | Railway |
-| Version control | GitHub |
+| Context | Academic final project · 2025 · 4-person team |
+| User roles | Student, vendor, administrator |
+| Frontend | Next.js, React, Bootstrap |
+| Backend | Node.js, Express.js, Mongoose, JWT |
+| Data & media | MongoDB Atlas, Cloudinary |
+| Deployment | Vercel frontend, Railway backend |
 
----
+> **Project status:** The application was deployed for its academic delivery. The original backend hosting is no longer maintained, so the historical frontend may not support a complete live order. This repository documents the product, architecture, and contribution evidence; the full source remains in the team repository.
 
-## What I Learned
+## Problem & product
 
-FTEAT was one of the projects that pushed me beyond building isolated pages.
+Manual ordering at the campus canteen made busy class breaks harder to manage: students queued to discover available food, while vendors recorded and processed orders manually. FTEAT was designed to let students browse before arriving and give vendors a structured view of menus and incoming orders.
 
-The most valuable lessons came from seeing how many pieces have to work together before a product feels complete:
+| Role | Main workflow |
+| --- | --- |
+| **Student** | Register and verify an account → browse and filter menus → choose add-ons → place an order → confirm payment → check order history and queue information |
+| **Vendor** | Register for administrator approval → maintain profile and menus → update stock → review orders → verify payments and update order status |
+| **Administrator** | Review vendor registrations → approve or reject vendors → manage permitted vendor information |
 
-- translating a real operational problem into application workflows,
-- coordinating development across a team,
-- designing for multiple user roles,
-- connecting frontend interfaces to backend APIs and persisted data,
-- understanding how changes in one layer can break another,
-- debugging integration rather than only isolated code,
-- handling deployment-specific problems,
-- and learning that software still needs maintenance after the feature itself is “finished.”
+### Menu discovery & customization
 
-It also made me more interested in the full software lifecycle — not only building a feature, but understanding how it is integrated, deployed, maintained, and used by real people.
+![Student menu with categories, search, item prices, stock indicators, and cart actions](assets/screenshots/student-menu.png)
 
----
+*Students can search and filter the menu, check prices and availability, and add items to their cart.*
 
-## Repository Purpose
+<details>
+<summary><strong>View item customization</strong></summary>
 
-This repository exists to present FTEAT clearly for **portfolio and technical review**.
+![Item customization dialog with optional add-ons and quantity controls](assets/screenshots/menu-add-ons.png)
 
-It does not duplicate the complete academic source repository. Instead, it summarizes:
+*Optional add-ons and quantity controls support customization before checkout.*
 
-- the problem,
-- the product,
-- the technical architecture,
-- my documented contribution,
-- deployment decisions,
-- engineering challenges,
-- and links to the original development evidence.
+</details>
 
-For complete source code and team history, see the original repository linked above.
+## My contributions
+
+I led the team and contributed to frontend development, responsive layouts, frontend–backend integration, debugging, and deployment fixes. The application was built collaboratively; the links below trace the branches and integration work associated with my contribution.
+
+| Area | Work contributed | Evidence |
+| --- | --- | --- |
+| Student & vendor interfaces | Student **Home, Menu, Cart** and vendor **Profile, Orders, Menu** screens; responsive layout refinement | [PR #14 — integration of the `ellen` branch](https://github.com/HannahLarissaHalim/UAS-FrontEnd-Kelompok6/pull/14) |
+| Deployment & integration | Hosted application fixes and integration changes from the `ellen2` branch | [PR #34](https://github.com/HannahLarissaHalim/UAS-FrontEnd-Kelompok6/pull/34), [PR #35](https://github.com/HannahLarissaHalim/UAS-FrontEnd-Kelompok6/pull/35) |
+| Environment compatibility | Railway configuration, database connection configuration, menu-item ID fixes, and CORS support for localhost and Vercel origins | [PR #35 commit history](https://github.com/HannahLarissaHalim/UAS-FrontEnd-Kelompok6/pull/35/commits) |
+| Account & order behavior | Profile settings, pickup-location information, vendor bank-account editing restrictions, and order-history image loading | [PR #35](https://github.com/HannahLarissaHalim/UAS-FrontEnd-Kelompok6/pull/35) |
+| Email delivery | SMTP port changes and migration from Gmail SMTP to Brevo during deployment troubleshooting | [PR #36](https://github.com/HannahLarissaHalim/UAS-FrontEnd-Kelompok6/pull/36), [PR #37](https://github.com/HannahLarissaHalim/UAS-FrontEnd-Kelompok6/pull/37), [PR #38](https://github.com/HannahLarissaHalim/UAS-FrontEnd-Kelompok6/pull/38) |
+
+PR #14 was opened by a teammate to merge the `ellen` branch. PRs #34–#38 were opened through my `nallievira` account. These records preserve the collaborative integration history for review.
+
+## Architecture
+
+```mermaid
+flowchart TD
+    S[Student] --> FE["Next.js / React · Vercel"]
+    V[Vendor] --> FE
+    A[Administrator] --> FE
+    FE -->|REST requests| API["Node.js / Express · Railway"]
+    API --> AUTH[JWT authentication and middleware]
+    API --> DATA["User, vendor, menu, and order modules"]
+    DATA --> DB[(MongoDB Atlas)]
+    API --> MEDIA[Cloudinary]
+    API --> EMAIL[Verification and password-reset email]
+```
+
+The backend uses a modular monolithic structure: routes, controllers, models, middleware, and service logic are separated by responsibility. The frontend and API were hosted separately, with GitHub-connected deployments on Vercel and Railway.
+
+| Backend area | Application responsibilities |
+| --- | --- |
+| Authentication | Registration, login, current-user retrieval, email verification, resend verification, password reset |
+| Users | User lookup, nickname and profile-image updates, account deletion |
+| Vendors | Registration and login, administrator approval, profile updates, vendor management |
+| Menus | Menu listing and details, create/edit/delete operations, vendor filtering, stock updates |
+| Orders | Order creation, student/vendor order retrieval, status updates, payment verification and cancellation of verification |
+
+## Engineering challenges
+
+| Challenge | What the implementation required |
+| --- | --- |
+| **Three roles sharing one product** | Distinct navigation, account flows, vendor approval, and role-specific access to menus and orders |
+| **Connecting UI to persisted data** | Replacing placeholder data with API responses and keeping menu, cart, user, vendor, and order state consistent |
+| **Different local and hosted environments** | Coordinating API URLs, CORS origins, environment variables, MongoDB connectivity, redirects, and email delivery |
+| **Order flow across multiple screens** | Aligning student checkout, persisted order data, vendor payment verification, and order/queue display |
+
+The project taught me to debug across application layers: an interface issue can originate in an API response, authentication state, persisted data, or deployment configuration. It also gave me experience coordinating feature branches into a deployed application and maintaining workflows through integration changes.
+
+## Screen gallery
+
+Additional screenshots show registration, student order review, and vendor and administrator operations.
+
+<details>
+<summary><strong>Student registration</strong></summary>
+
+![Student registration form with identity and academic-program fields](assets/screenshots/student-registration.png)
+
+*Registration captures the student's identity and academic information.*
+
+</details>
+
+<details>
+<summary><strong>Student order history</strong></summary>
+
+![Student order history with order cards, totals, timestamps, and detail actions](assets/screenshots/order-history.png)
+
+*Students can review previous orders and open their details.*
+
+</details>
+
+<details open>
+<summary><strong>Vendor orders & payment verification</strong></summary>
+
+![Vendor orders screen with payment states, queue number, and verification actions](assets/screenshots/vendor-orders.png)
+
+*Vendors can review payment states, verify payments, and cancel a verification from the order dashboard.*
+
+</details>
+
+<details>
+<summary><strong>Administrator vendor approval</strong></summary>
+
+![Administrator screen listing registered vendors and approval controls](assets/screenshots/vendor-approval.png)
+
+*Administrators control vendor activation through the approval workflow.*
+
+</details>
+
+## Source & project evidence
+
+| Resource | Link |
+| --- | --- |
+| Complete source and collaborative history | [Team repository](https://github.com/HannahLarissaHalim/UAS-FrontEnd-Kelompok6) |
+| Frontend implementation | [`fteat_uas_frontend`](https://github.com/HannahLarissaHalim/UAS-FrontEnd-Kelompok6/tree/master/fteat_uas_frontend) |
+| Backend implementation | [`backend`](https://github.com/HannahLarissaHalim/UAS-FrontEnd-Kelompok6/tree/master/backend) |
+| Historical frontend deployment | [fteatuntar.vercel.app/home](https://fteatuntar.vercel.app/home) |
+
+**Team:** Ellen Elvira, Hannah Larissa Halim, Davin Pratama, and Luis Mickholi.
+
+This repository presents FTEAT for portfolio and technical review, with the original team source and history linked above.
