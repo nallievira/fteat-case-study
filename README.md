@@ -30,13 +30,31 @@ The project was developed as a collaborative academic final project. I served as
 
 ## Product Preview
 
+These screenshots are direct captures from the working FTEAT interface during the academic delivery period.
+
+### Student Experience
+
 <p align="center">
-  <img src="assets/homepage.jpg" alt="FTEAT project preview" width="500">
+  <img src="assets/ui/student-menu.jpg" alt="FTEAT student menu" width="560">
 </p>
 
-<p align="center"><em>Project preview captured from the original academic report.</em></p>
+<p align="center"><em>Menu browsing with categories, search, pricing, add-ons, and cart actions.</em></p>
 
-The original standalone screenshots are no longer available, so this preview is intentionally kept compact to avoid visible upscaling artifacts.
+<p align="center">
+  <img src="assets/ui/payment.jpg" alt="FTEAT payment flow" width="560">
+</p>
+
+<p align="center"><em>Payment instructions and order total before vendor verification.</em></p>
+
+### Vendor Operations
+
+<p align="center">
+  <img src="assets/ui/vendor-orders.jpg" alt="FTEAT vendor order verification" width="560">
+</p>
+
+<p align="center"><em>Vendor-side order management and payment verification workflow.</em></p>
+
+The interface supports an end-to-end flow from menu discovery and ordering to payment confirmation and vendor-side processing.
 
 ---
 
